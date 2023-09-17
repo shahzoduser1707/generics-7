@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -11,6 +12,7 @@ class PhoneModel(models.Model):
     cameras = models.CharField(max_length=100,default=1)
     created_at = models.DateTimeField(default=datetime.now)
     desc = models.TextField(default='Samsung or Iphone ?')
+    user = models.ForeignKey(User,on_delete=models.CASCADE,default=1)
 
 
     class Meta:
